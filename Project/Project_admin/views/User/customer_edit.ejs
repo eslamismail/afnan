@@ -1,0 +1,92 @@
+<%- contentFor('HeaderCss') %>
+
+<%- contentFor('breadcrumb') %>
+
+<div class="col-sm-6">
+    <h4 class="page-title">User Edit</h4>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0);">artBeatz</a></li>
+        <li class="breadcrumb-item"><a href="/Customer">Users</a></li>
+        <li class="breadcrumb-item active">Edit</li>
+    </ol>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form data-toggle="validator" method="post" action="/Customer_update">
+                    <input type="hidden" name="id" value="<%=result.user_pub_id%>">
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label for="email" class="col-form-label">Email Id</label>
+                            <input class="form-control" type="text" placeholder="Email Id"
+                                    id="email" name="email_id" value="<%=result.email_id%>" disabled=""/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="mobile_no" class="col-form-label">Mobile Number</label>
+                            <input class="form-control" type="text" placeholder="Mobile Number" required
+                                    id="mobile_no" name="mobile_no" value="<%=result.mobile_no%>"/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="gender" class="col-form-label">Gender</label>
+                            <select class="form-control" name="gender" id="gender" required>
+                                <option value="">-- Select Gender --</option>
+                                <option value="1" <%= result.gender == '1' ? 'selected' : ''%>>Male</option>
+                                <option value="2" <%= result.gender == '2' ? 'selected' : ''%>>Female</option>
+                                <option value="0" <%= result.gender == '0' ? 'selected' : ''%>>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="name" class="col-form-label">Name</label>
+                            <input class="form-control" type="text" placeholder="Name" required
+                                    id="name" name="name" value="<%=result.name%>"/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="description" class="col-form-label">Description</label>
+                            <input class="form-control" type="text" placeholder="Description" required
+                                    id="description" name="description" value="<%=result.description%>"/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="address" class="col-form-label">Address</label>
+                            <input class="form-control" type="text" placeholder="Address" required
+                                    id="address" name="address" value="<%=result.address%>"/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="qualification" class="col-form-label">Qualification</label>
+                            <input class="form-control" type="text" placeholder="Qualification" required
+                                    id="qualification" name="qualification" value="<%=result.qualification%>"/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="country" class="col-form-label">Country</label>
+                            <input class="form-control" type="text" placeholder="Country" required
+                                    id="country" name="country" value="<%=result.country%>"/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="city" class="col-form-label">City</label>
+                            <input class="form-control" type="text" placeholder="City" required
+                                    id="city" name="city" value="<%=result.city%>"/>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="bio" class="col-form-label">Bio</label>
+                            <input class="form-control" type="text" placeholder="Bio" required
+                                    id="bio" name="bio" value="<%=result.bio%>"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+<%- contentFor('FooterJs') %>
+
+<script src="public/assets/js/app.js"></script>
+
+<%- contentFor('BottomJs') %>

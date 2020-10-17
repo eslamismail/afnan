@@ -1,0 +1,117 @@
+<%- contentFor('HeaderCss') %>
+<%- contentFor('breadcrumb') %>
+<div class="col-sm-6">
+  <h4 class="page-title">Notification</h4>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">artBeatz</a></li>
+    <li class="breadcrumb-item"><a href="javascript:void(0);">Notification</a></li>
+    <li class="breadcrumb-item active">Customer Table</li>
+  </ol>
+</div>
+<%- contentFor('body') %>
+
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="header">
+            <h2>Send Notification</h2>
+            <div class="send_msg" style="float: right; padding: 5px 0;margin-top: -29px;">
+              <input disabled="disabled" id="send_msg" class="btn btn-success" type="submit" value="Send Message"
+                data-target="#msgmodal" data-toggle="modal">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- The Modal -->
+<div role="dialog" class="modal fade" id="msgmodal" style="display: none;">
+  <div class="modal-dialog">
+
+    <form method="post" action="/send-notification">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4><b>Send Notification</b></h4>
+          <button data-dismiss="modal" class="close" type="button">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group clearfix">
+            <input type="hidden" id="uid" name="uid"><br>
+          </div>
+
+          <div class="form-group clearfix">
+            <label>Title</label>
+            <input id="text" class="col-md-12" type="text" name="title" maxlength="15" required /><br>
+            <span class="result">0 </span><span>/15</span>
+          </div>
+
+          <div class="form-group clearfix">
+            <label>Notification Message</label>
+            <textarea id="textfield1" name="msg" class="col-md-12" rows="4" maxlength="150" required></textarea><br>
+            <span class="result1">0 </span><span>/150</span>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-success" value="Submit" id="notify-user">
+          <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <h4 class="mt-0 header-title">All Customer</h4>
+        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
+          style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th>email</th>
+              <th>Mobile No.</th>
+              <th>Send Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <td>1</td>
+                        <td>reena</td>
+                        <td></td>
+                        <td>r@gmail.com</td>
+                        <td>124</td>
+                        <td> <input class="notification_check mychechk"  type="checkbox" value="" name="check" style="opacity:1;position:inherit;"></td> -->
+            <% if(result){ %>
+            <% result.forEach(function(item, i){ %>
+            <tr>
+              <td><%= i+1 %></td>
+              <td><%= item.name %></td>
+              <td><img src="<%= item.image %>" height="50" width="50"></td>
+              <!--  	<td>This is not available in demo</td>
+                              <td>This is not available in demo</td> -->
+              <td><%= item.email_id %></td>
+              <td><%= item.mobile_no %></td>
+              <td> <input class="notification_check mychechk" type="checkbox" value="<%=item.user_pub_id %>"
+                  name="check" style="opacity:1;position:inherit;"></td>
+            </tr>
+            <% }) %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> <!-- end col -->
+</div> <!-- end row -->
+<%- contentFor('FooterJs') %>
+<script src="public/assets/js/app.js"></script>
+<%- contentFor('BottomJs') %>

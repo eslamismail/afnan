@@ -1,0 +1,44 @@
+var con = require("./config/database");
+var cm = require("./model/common");
+
+var express = require("express");
+var app = express();
+
+var bodyparser = require("body-parser");
+var routes = require("./routes");
+app.use(bodyparser.json());
+app.use(routes);
+var constant = require("./constant/constant");
+var constantAR = require("./constant/constantAr");
+
+var user = require("./routes/user.js");
+var category = require("./routes/category.js");
+var job = require("./routes/job.js");
+var gallery = require("./routes/gallery.js");
+var rating = require("./routes/rating.js");
+var ticket = require("./routes/ticket");
+var notification = require("./routes/notification.js");
+var chat = require("./routes/chat.js");
+var dashboard = require("./routes/dashboard.js");
+var coupon = require("./routes/coupon.js");
+var service = require("./routes/service.js");
+var work = require("./routes/work.js");
+var favourite = require("./routes/favourite.js");
+var fannanpoint = require("./routes/fannan_point.js");
+var package = require("./routes/package.js");
+app.use("/", user);
+app.use("/", service);
+app.use("/", category);
+app.use("/", job);
+app.use("/", gallery);
+app.use("/", rating);
+app.use("/", notification);
+app.use("/", ticket);
+app.use("/", chat);
+app.use("/", dashboard);
+app.use("/", favourite);
+app.use("/", coupon);
+app.use("/", work);
+app.use("/", fannanpoint);
+app.use("/", package);
+app.listen(4005);

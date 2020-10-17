@@ -1,0 +1,182 @@
+<%- contentFor('HeaderCss') %>
+
+<style>
+    .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+   .button1 {
+    background-color:#2E86C1;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  
+   }
+   .button2 {
+    background-color:#A569BD ;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  
+   }
+   .button3 {
+    background-color:rgb(206, 35, 35);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  
+   }
+   .button4 {
+    background-color:  #F1C40F;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  
+   }
+      .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 5px;
+        font-size: 14px;
+        border: none;
+        max-width:100%;
+        width:200%
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      
+      .dropdown-content a:hover {background-color: #ddd;}
+      
+      .dropdown:hover .dropdown-content {display: block;}
+      
+      .dropdown:hover .dropbtn {background-color: #3e8e41;}
+      </style>  
+<%- contentFor('breadcrumb') %>
+
+<div class="col-sm-6">
+    <h4 class="page-title">User Invoice</h4>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0);">artBeatz</a></li>
+        <li class="breadcrumb-item"><a href="/Customer">Users</a></li>
+        <li class="breadcrumb-item active">Received Invoice</li>
+    </ol>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
+                    <%- include('customer_partial') %>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane p-3 active">
+                        <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
+                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Name</th>
+                                    <th>Job Title</th>
+                                    <th>Price</th>
+                                    <th>Payment Type</th>
+                                    <th>Status</th>
+                                    <th>Date time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% result.forEach(function(item,i){ %>
+                                <tr>
+                                    <td><%= i+1 %></td>
+                                    <td><%= item.name%></td>
+                                    <td><%= item.job_title %></td>
+                                    <td><%= (item.net_amount > 0) ? item.net_amount : item.final_amount %></td>
+                                    <td>
+                                        <% if(item.payment_type == 0){ %>
+                                            Online
+                                        <% } else if(item.payment_type == 1){ %>
+                                            Cash
+                                        <% } else if(item.payment_type == 2){ %>
+                                            Wallet
+                                        <% } else { %>
+                                            -
+                                        <% } %>
+                                    </td>
+                                    <td>
+                                        <% if(item.status == 1){ %>
+                                            <span class="badge badge-success">Paid</span>
+                                        <% } else { %>
+                                            <span class="badge badge-warning">Pending</span>
+                                        <% } %>
+                                    </td>
+                                    <td>
+                                        <%= moment.unix(item.created_at/1000).format("DD/MM/YYYY LTS") %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+<%- contentFor('FooterJs') %>
+
+<script src="public/assets/js/app.js"></script>
+
+<%- contentFor('BottomJs') %>

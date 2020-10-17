@@ -1,0 +1,104 @@
+<%- contentFor('HeaderCss') %>
+
+<%- contentFor('breadcrumb') %>
+
+<div class="col-sm-6">
+    <h4 class="page-title">User Edit</h4>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0);">artBeatz</a></li>
+        <li class="breadcrumb-item"><a href="/Customer">Users</a></li>
+        <li class="breadcrumb-item active">Edit</li>
+    </ol>
+</div>
+
+<%- contentFor('body') %>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-tabs nav-tabs-custom" role="tablist">
+                    <%- include('customer_partial') %>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane p-3 active">
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Name :</label>
+                                <br/><%= result.name %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Email :</label>
+                                <br/><%= result.email_id %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Mobile No :</label>
+                                <br/><%= result.mobile_no %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Gender :</label>
+                                <br/>
+                                <% if(result.gender == 1){ %>
+                                    Male
+                                <% } else if(result.gender == 2){ %>
+                                    Female
+                                <% } else { %>
+                                    Other
+                                <% } %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Category :</label>
+                                <br/><%= result.cat_name %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Latitude :</label>
+                                <br/><%= result.latitude %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Longitude :</label>
+                                <br/><%= result.longitude %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Description :</label>
+                                <br/><%= result.description %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Address :</label>
+                                <br/><%= result.address %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Country Code :</label>
+                                <br/><%= result.country_code %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Qualification :</label>
+                                <br/><%= result.qualification %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Country :</label>
+                                <br/><%= result.country %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">City :</label>
+                                <br/><%= result.city %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Price :</label>
+                                <br/><%= result.price %>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="col-form-label">Bio :</label>
+                                <br/><%= result.bio %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div> <!-- end row -->
+<%- contentFor('FooterJs') %>
+
+<script src="public/assets/js/app.js"></script>
+
+<%- contentFor('BottomJs') %>

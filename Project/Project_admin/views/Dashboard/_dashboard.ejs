@@ -1,0 +1,462 @@
+<%- contentFor('HeaderCss') %>
+<!--Chartist Chart CSS -->
+<link rel="stylesheet" href="public/plugins/chartist/css/chartist.min.css">
+<!-- perticular page css -->
+
+<%- contentFor('breadcrumb') %>
+<div class="col-sm-6">
+    <h4 class="page-title">Dashboard</h4>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">Welcome to artBeatz Dashboard</li>
+    </ol>
+</div>
+
+<%- contentFor('body') %>
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card mini-stat bg-primary text-white">
+            <div class="card-body">
+                <div class="mb-4">
+                    <div class="float-left mini-stat-img mr-4">
+                        <img src="public/assets/images/services-icon/01.png" alt="">
+                    </div>
+                    <h5 class="font-16 text-uppercase mt-0 text-white-50">Customer</h5>
+                    <h4 class="font-500"><%= result[0].id%> <i class="mdi mdi-arrow-up text-success ml-2"></i></h4>
+                </div>
+                <div class="pt-2">
+                    <div class="float-right">
+                        <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                    </div>
+                    <p class="text-white-50 mb-0">Since last month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card mini-stat bg-primary text-white">
+            <div class="card-body">
+                <div class="mb-4">
+                    <div class="float-left mini-stat-img mr-4">
+                        <img src="public/assets/images/services-icon/02.png" alt="">
+                    </div>
+                    <h5 class="font-16 text-uppercase mt-0 text-white-50">Amount</h5>
+                    <h4 class="font-500"><%= earn[0].earn%><i class="mdi mdi-arrow-down text-danger ml-2"></i></h4>
+                </div>
+                <div class="pt-2">
+                    <div class="float-right">
+                        <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                    </div>
+                    <p class="text-white-50 mb-0">Since last month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card mini-stat bg-primary text-white">
+            <div class="card-body">
+                <div class="mb-4">
+                    <div class="float-left mini-stat-img mr-4">
+                        <img src="public/assets/images/services-icon/03.png" alt="">
+                    </div>
+                    <h5 class="font-16 text-uppercase mt-0 text-white-50">Category</h5>
+                    <h4 class="font-500"><%= cat[0].id%> <i class="mdi mdi-arrow-up text-success ml-2"></i></h4>
+                </div>
+                <div class="pt-2">
+                    <div class="float-right">
+                        <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                    </div>
+                    <p class="text-white-50 mb-0">Since last month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card mini-stat bg-primary text-white">
+            <div class="card-body">
+                <div class="mb-4">
+                    <div class="float-left mini-stat-img mr-4">
+                        <img src="public/assets/images/services-icon/04.png" alt="">
+                    </div>
+                    <h5 class="font-16 text-uppercase mt-0 text-white-50">Jobs</h5>
+                    <h4 class="font-500"><%= job[0].id%> <i class="mdi mdi-arrow-up text-success ml-2"></i></h4>
+
+                </div>
+                <div class="pt-2">
+                    <div class="float-right">
+                        <a href="#" class="text-white-50"><i class="mdi mdi-arrow-right h5"></i></a>
+                    </div>
+
+                    <p class="text-white-50 mb-0">Since last month</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-xl-9">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title mb-5">Monthly Earning</h4>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div>
+                            <div id="chart-with-area" class="ct-chart earning ct-golden-section"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <p class="text-muted mb-4">This month</p>
+                                    <h4>$34,252</h4>
+                                    <p class="text-muted mb-5">It will be as simple as in fact it will be occidental.
+                                    </p>
+                                    <span class="peity-donut"
+                                        data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }'
+                                        data-width="72" data-height="72">4/5</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <p class="text-muted mb-4">Last month</p>
+                                    <h4>$36,253</h4>
+                                    <p class="text-muted mb-5">It will be as simple as in fact it will be occidental.
+                                    </p>
+                                    <span class="peity-donut"
+                                        data-peity='{ "fill": ["#02a499", "#f2f2f2"], "innerRadius": 28, "radius": 32 }'
+                                        data-width="72" data-height="72">3/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+        </div>
+        <!-- end card -->
+    </div>
+    <div class="col-xl-3">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <h4 class="mt-0 header-title mb-4">Sales Analytics</h4>
+                </div>
+                <div class="wid-peity mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>
+                                <p class="text-muted">Online</p>
+                                <h5 class="mb-4">1,542</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <span class="peity-line" data-width="100%"
+                                    data-peity='{ "fill": ["rgba(2, 164, 153,0.3)"],"stroke": ["rgba(2, 164, 153,0.8)"]}'
+                                    data-height="60">6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wid-peity mb-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>
+                                <p class="text-muted">Offline</p>
+                                <h5 class="mb-4">6,451</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <span class="peity-line" data-width="100%"
+                                    data-peity='{ "fill": ["rgba(2, 164, 153,0.3)"],"stroke": ["rgba(2, 164, 153,0.8)"]}'
+                                    data-height="60">6,2,8,4,-3,8,1,-3,6,-5,9,2,-8,1,4,8,9,8,2,1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div>
+                                <p class="text-muted">Marketing</p>
+                                <h5>84,574</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-4">
+                                <span class="peity-line" data-width="100%"
+                                    data-peity='{ "fill": ["rgba(2, 164, 153,0.3)"],"stroke": ["rgba(2, 164, 153,0.8)"]}'
+                                    data-height="60">6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+<div class="row">
+    <div class="col-xl-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title mb-4">Sales Report</h4>
+                <div class="cleafix">
+                    <p class="float-left"><i class="mdi mdi-calendar mr-1 text-primary"></i> Jan 01 - Jan 31</p>
+                    <h5 class="font-18 text-right">$4230</h5>
+                </div>
+                <div id="ct-donut" class="ct-chart wid"></div>
+                <div class="mt-4">
+                    <table class="table mb-0">
+                        <tbody>
+                            <tr>
+                                <td><span class="badge badge-primary">Desk</span></td>
+                                <td>Desktop</td>
+                                <td class="text-right">54.5%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-success">Mob</span></td>
+                                <td>Mobile</td>
+                                <td class="text-right">28.0%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-warning">Tab</span></td>
+                                <td>Tablets</td>
+                                <td class="text-right">17.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title mb-4">Activity</h4>
+                <ol class="activity-feed">
+                    <li class="feed-item">
+                        <div class="feed-item-list">
+                            <span class="date">Jan 22</span>
+                            <span class="activity-text">Responded to need “Volunteer Activities”</span>
+                        </div>
+                    </li>
+                    <li class="feed-item">
+                        <div class="feed-item-list">
+                            <span class="date">Jan 20</span>
+                            <span class="activity-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                                deleniti atque...<a href="#" class="text-success">Read more</a></span>
+                        </div>
+                    </li>
+                    <li class="feed-item">
+                        <div class="feed-item-list">
+                            <span class="date">Jan 19</span>
+                            <span class="activity-text">Joined the group “Boardsmanship Forum”</span>
+                        </div>
+                    </li>
+                    <li class="feed-item">
+                        <div class="feed-item-list">
+                            <span class="date">Jan 17</span>
+                            <span class="activity-text">Responded to need “In-Kind Opportunity”</span>
+                        </div>
+                    </li>
+                    <li class="feed-item">
+                        <div class="feed-item-list">
+                            <span class="date">Jan 16</span>
+                            <span class="activity-text">Sed ut perspiciatis unde omnis iste natus error sit rem.</span>
+                        </div>
+                    </li>
+                </ol>
+                <div class="text-center">
+                    <a href="#" class="btn btn-primary">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <div class="py-4">
+                            <i class="ion ion-ios-checkmark-circle-outline display-4 text-success"></i>
+
+                            <h5 class="text-primary mt-4">Order Successful</h5>
+                            <p class="text-muted">Thanks you so much for your order.</p>
+                            <div class="mt-4">
+                                <a href="" class="btn btn-primary btn-sm">Chack Status</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-primary">
+                    <div class="card-body">
+                        <div class="text-center text-white py-4">
+                            <h5 class="mt-0 mb-4 text-white-50 font-16">Top Product Sale</h5>
+                            <h1>1452</h1>
+                            <p>Computer</p>
+                            <p class="text-white-50 mb-0">At solmen va esser necessi far uniform myth... <a href="#"
+                                    class="text-white">View more</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="mt-0 header-title mb-4">Client Reviews</h4>
+                        <p class="text-muted mb-5">" Everyone realizes why a new common language would be desirable one
+                            could refuse to pay expensive translators it would be necessary. "</p>
+                        <div class="float-right mt-2">
+                            <a href="#" class="text-primary">
+                                <i class="mdi mdi-arrow-right h5"></i>
+                            </a>
+                        </div>
+                        <h6 class="mb-0"><img src="public/assets/images/users/user-3.jpg" alt=""
+                                class="thumb-sm rounded-circle mr-2"> James Athey</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title mb-4">Latest Trasaction</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Invoice_id</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% result_trans.forEach(function(item,i){%>
+                            <tr>
+                                <td><%= item.invoice_id%></td>
+                                <td>
+                                    <img src="<%= item.image %>" alt="" class="thumb-md rounded-circle mr-2">
+                                </td>
+                                <td><%= item.name%></td>
+
+                                <% if (item.trans_type == 1) { %>
+                                <td> <button class="button">Credit</button></td>
+                                <%} else { %>
+                                <td> <button class="deactiv">Debit</button></td>
+                                <% } %>
+                                <td><%= item.point%></td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="mt-0 header-title mb-4">Tickets</h4>
+
+                <div style="overflow-x:auto;">
+                    <!-- <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
+                       style="border-collapse: collapse; border-spacing: 0; width: 100%;"> -->
+                    <table class="table table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>User Name</th>
+                                <th>Support Title</th>
+                                <th>Suppot Description</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% result_ticket.forEach(function(item,i){ %>
+                            <tr>
+                                <td><%= i+1 %></td>
+                                <td><%= item.name%></td>
+                                <td><%= item.title%></td>
+                                <td><%= item.support_description%></td>
+                                <% if (item.status == 0) { %>
+                                <td><span class="badge badge-danger">Pending</span></td>
+                                <%} else { %>
+                                <td> <span class=" badge badge-success">Complete</span></td>
+                                <% } %>
+                                <td>
+                                    <!-- <a href="support/chat/<%= item.support_id %>" class="btn btn-info btn-xs waves-effect waves-light">view</a> -->
+
+                                    <!-- <div class="text-center">
+     
+                                   <button type="button" class="btn btn-info btn-sm waves-effect waves-light support_chat"
+                                      data-support="<%= item.id%>" style="position: relative;overflow: initial;" >
+                                      <% if (item.status == 0) { %> Reply <%} else { %> View <% } %>
+                                      <% if(item.message_c != undefined && item.message_c != 0){ %>
+                                      <span class="badge badge-pill badge-danger float-right"
+                                         style="position: absolute;right: -8px;top: -6px;"><%= item.message_c %></span>
+                                      <% } %>
+                                   </button>
+                                   <% if(item.status ==1) {%>
+                                   <button type="button"
+                                      class="btn btn-success btn-sm waves-effect waves-light support_complete"
+                                      data-support="<%= item.id%>" data-user="<%= item.user_pub_id%>">Complete</button>
+                                   <% }%> -->
+                                    <!-- Large modal -->
+
+                </div>
+                </td>
+                </tr>
+                <% }) %>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end col -->
+</div>
+<!-- end row -->
+<script>
+    $(document).ready(function () {
+        new Chartist.Line('#chart-with-area1', {
+            labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            series: [
+                [5, 9, 7, 8, 5, 3, 5, 4, 1, 1, 1, 1]
+            ]
+        }, {
+            low: 0,
+            showArea: true,
+            plugins: [
+                Chartist.plugins.tooltip()
+            ]
+        });
+    })
+</script>
+<%- contentFor('FooterJs') %>
+
+
+<%- contentFor('BottomJs') %>
+<!-- nothing -->
